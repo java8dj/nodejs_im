@@ -47,8 +47,6 @@ AV.Cloud.define("_messageSent",function(request,response){
             console.log("_messageSent 保存失败--"+err);
         });
     }
-
-
     response.success();
 });
 module.exports = AV.Cloud;
