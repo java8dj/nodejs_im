@@ -1,6 +1,6 @@
 var AV = require('leanengine');
 
-var AtObject = AV.Object.extend("_AtObject");
+var AtObject = AV.Object.extend("AtObject");
 
 /**
  * 一个简单的云代码方法
@@ -26,7 +26,6 @@ AV.Cloud.define("_conversationStart", function(request,response){
 });
 AV.Cloud.define("_messageSent",function(request,response){
     console.log("messageSent------");
-	console.log(request);
     var content = request.params.content;
     var json = JSON.parse(content);
     var lctext = json._lctext;
