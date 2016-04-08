@@ -40,6 +40,7 @@ AV.Cloud.define("_messageSent",function(request,response){
         atObj.save({
             text:lctext,
             mentionUserIds:mentionUserIds,
+			convId:request.params.convId,
             user:user
         }).then(function(obj){
             console.log("_messageSent 保存成功-"+obj.id)
