@@ -60,6 +60,7 @@ AV.Cloud.define("_messageSent",function(request,response){
         var atObj = new AtObject();
         atObj.save({
             text:lctext,
+			convId:request.params.convId,
             mentionUserIds:mentionUserIds,
             user:user
         }).then(function(obj){
