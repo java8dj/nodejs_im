@@ -26,6 +26,7 @@ AV.Cloud.define("_conversationStart", function(request,response){
 });
 AV.Cloud.define("_messageSent",function(request,response){
     console.log("messageSent------");
+	console.log(request);
     var content = request.params.content;
     var json = JSON.parse(content);
     var lctext = json._lctext;
@@ -45,7 +46,8 @@ AV.Cloud.define("_messageSent",function(request,response){
         }).then(function(obj){
             console.log("_messageSent 保存成功-"+obj.id)
         },function(err){
-            console.log("_messageSent 保存失败--"+err);
+            console.log("_messageSent 保存失败--");
+			console.log(err);
         });
     }
     response.success();
