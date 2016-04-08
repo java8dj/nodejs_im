@@ -41,7 +41,8 @@ AV.Cloud.define("_messageSent",function(request,response){
             text:lctext,
             mentionUserIds:mentionUserIds,
 			convId:request.params.convId,
-            user:user
+            user:user,
+			timestamp:request.params.timestamp
         }).then(function(obj){
             console.log("_messageSent 保存成功-"+obj.id)
         },function(err){
