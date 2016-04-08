@@ -9,7 +9,7 @@ AV.Cloud.define('hello', function(request, response) {
   response.success({'key':'Hello world!'});
 });
 
-AV.Cloud.define("_messageSent", function(request,response){
+AV.Cloud.define("_messageReceived", function(request,response){
     response.success();
 });
 AV.Cloud.define("_receiversOffline", function(request,response){
@@ -24,12 +24,10 @@ AV.Cloud.define("_conversationRemove", function(request,response){
 AV.Cloud.define("_conversationStart", function(request,response){
     response.success();
 });
-AV.Cloud.define("_messageReceived",function(request,response){
-
+AV.Cloud.define("_messageSent",function(request,response){
     console.log("messageSent");
     var content = request.params.content;
     var json = JSON.parse(content);
-
     var lctext = json._lctext;
     var lcattrs = json._lcattrs;
     var mentionUserIds = lcattrs.mentionUserIds;
@@ -41,7 +39,6 @@ AV.Cloud.define("_messageReceived",function(request,response){
         var atObj = new AtObject();
         atObj.save({
             text:lctext,
-			//convId:request.params.convId,
             mentionUserIds:mentionUserIds,
             user:user
         }).then(function(obj){
