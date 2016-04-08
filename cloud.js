@@ -25,7 +25,7 @@ AV.Cloud.define("_conversationStart", function(request,response){
     response.success();
 });
 AV.Cloud.define("_messageSent",function(request,response){
-    console.log("messageSent");
+    console.log("messageSent------");
     var content = request.params.content;
     var json = JSON.parse(content);
     var lctext = json._lctext;
