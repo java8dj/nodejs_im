@@ -1,6 +1,6 @@
 var AV = require('leanengine');
 
-var Post = AV.Object.extend('Post');
+var Post = AV.Object.extend('_At_Me');
 /**
  * 一个简单的云代码方法
  */
@@ -10,9 +10,9 @@ AV.Cloud.define('hello', function(request, response) {
 
 AV.Cloud.define('_messageReceived', function(request, response) {
   var params = request.params;
-
+  
   var post = new Post();
-  post.set('content', '每个 JavaScript 程序员必备的8个开发工具add by yuan');
+  post.set('content', params);
   post.set('pubUser', 'LeanCloud官方客服');
   post.set('pubTimestamp', 1435541999);
   post.save().then(function(post) {
