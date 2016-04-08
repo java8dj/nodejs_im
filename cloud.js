@@ -23,5 +23,6 @@ AV.Cloud.define('_messageReceived', function(request, response) {
   // error 是 AV.Error 的实例，包含有错误码和描述信息.
     console.log('Failed to create new object, with error message: ' + err.message);
   });
+  response.success();
 });
 module.exports = AV.Cloud;
